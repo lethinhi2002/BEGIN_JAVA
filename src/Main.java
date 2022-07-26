@@ -1,24 +1,38 @@
-//.Write a method called median that accepts an array of integers as its
-//argument and returns the median of the numbers in the array. The median is
-//the number that will appear in the middle if you arrange the elements in order.
-//Assume that the array is of odd size (so that one sole element constitutes the
-//median) and that the numbers in the array are between 0 and 99 inclusive.
-
+//Write a method named minGap that accepts an integer array as a
+//parameter and returns the minimum 'gap' between adjacent values in the
+//array. The gap between two adjacent values in a array is defined as the
+//second value minus the first value. For example, suppose a variable
+//called array is an array of integers that stores the following sequence of
+//values.
+//int[] array = {1,3,6, 7, 12}
+//The first gap is 2 (3 - 1), the second gap is 3 (6 - 3), the third gap is 1 (7 - 6)
+//and the fourth gap is 5 (12 - 7). Thus, the call of minGap(array) should
+//return 1 because that is the smallest gap in the array. Notice that the minimum
+//gap could be a negative number. For example, if array stores the following
+//sequence of values:
+//{3, 5, 11, 4, 8}
+//The gaps would be computed as 2 (5 - 3), 6 (11 - 5), -7 (4 - 11), and 4 (8 - 4).
+//Of these values, -7 is the smallest, so it would be returned.
+//This gap information can be helpful for determining other properties of the
+//array. For example, if the minimum gap is greater than or equal to 0, then you
+//know the array is in sorted (nondecreasing) order. If the gap is greater than 0,
+//then you know the array is both sorted and unique (strictly increasing).
+//If you are passed an array with fewer than 2 elements, you should return 0.
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print(" number of elements in the array= ");
+        int[] a = new int[1000];
+        System.out.print("n= ");
         int n=input.nextInt();
-        int[] a = new int[n];
-
         for (int i = 0; i <n ; i++) {
-            System.out.print("a["+(i)+"]= ");
+            System.out.print("a["+(i+1)+"]= ");
             a[i]=input.nextInt();
         }
-        Arrays.sort(a);
-        System.out.println("median of the numbers in the array= "+a[(a.length)/2]);
-
+        int min=99999;
+        for (int i = 1; i <n ; i++) {
+            min=Math.min(min,a[i]-a[i-1]);
+        }
+        System.out.println(min);
     }
 }
-
