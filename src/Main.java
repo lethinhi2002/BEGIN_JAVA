@@ -1,33 +1,33 @@
-//7. Write a program that asks the user to enter numbers, then prints the smallest
-//and largest of all the numbers typed in by the user. You may assume the user
-//enters a valid number greater than 0 for the number of numbers to read. Here
-//is an example dialogue:
-//How many numbers do you want to enter? 4
-//Number 1: 5
-//Number 2: 11
-//Number 3: -2
-//Number 4: 3
-//Smallest = -2
-//Largest = 11
-//8. Write a program t
+//. Write a program that prompts the user for many integers and print the total
+//even sum and maximum of the even numbers. You may assume that the user
+//types at least one non-negative even integer.
+//how many integers? 4
+//next integer? 2
+//next integer? 9
+//next integer? 18
+//next integer? 4
+//even sum = 24
+//even max = 18
 
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int[] a = new int[1000];
-        System.out.print("How many numbers do you want to enter: ");
+        System.out.print("how many integers? ");
         int n = input.nextInt();
-        int max = -999999, min = 999999;
+        int max = 0, total = 0;
         int m = 1;
         while (m <= n) {
-            System.out.print("Number "+m+" :");
-            int tempo = input.nextInt();
-            min=Math.min(min,tempo);
-            max=Math.max(max,tempo);
+            System.out.print("next integer? ");
+            a[m] = input.nextInt();
+            if (a[m] % 2 == 0) {
+                total += a[m];
+                if (a[m] > max) max = a[m];
+            }
             m++;
         }
-        System.out.println("Smallest "+min);
-        System.out.println("Largest = "+max);
+        System.out.println("even sum = "+total);
+        System.out.println("even max = "+max);
     }
 }
