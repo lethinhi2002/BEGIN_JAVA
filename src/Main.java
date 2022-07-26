@@ -1,31 +1,33 @@
+//7. Write a program that asks the user to enter numbers, then prints the smallest
+//and largest of all the numbers typed in by the user. You may assume the user
+//enters a valid number greater than 0 for the number of numbers to read. Here
+//is an example dialogue:
+//How many numbers do you want to enter? 4
+//Number 1: 5
+//Number 2: 11
+//Number 3: -2
+//Number 4: 3
+//Smallest = -2
+//Largest = 11
+//8. Write a program t
 
-// Write a method named lastIndexOf that accepts an array of integers and
-//an integer value as its parameters and returns the last index at which the
-//value occurs in the array. The method should return -1 if the value is not
-//found. For example, in the list containing {74, 85, 102, 99, 101, 85, 56}, the
-//last index of the value 85 is 5.
 import java.util.*;
 public class Main {
-
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print(" number of elements in the array= ");
-        int n=input.nextInt();
-        int[] a = new int[n];
-        for (int i = 0; i <n ; i++) {
-            System.out.print("a["+(i)+"]= ");
-            a[i]=input.nextInt();
+        int[] a = new int[1000];
+        System.out.print("How many numbers do you want to enter: ");
+        int n = input.nextInt();
+        int max = -999999, min = 999999;
+        int m = 1;
+        while (m <= n) {
+            System.out.print("Number "+m+" :");
+            int tempo = input.nextInt();
+            min=Math.min(min,tempo);
+            max=Math.max(max,tempo);
+            m++;
         }
-        System.out.print("number= ");
-        int number=input.nextInt();
-        int lastIndexOf=-1;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i]==number) lastIndexOf=i;
-        }
-        System.out.println(lastIndexOf);
+        System.out.println("Smallest "+min);
+        System.out.println("Largest = "+max);
     }
 }
-
-
-
