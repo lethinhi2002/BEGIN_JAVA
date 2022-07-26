@@ -1,54 +1,31 @@
 
+// Write a method named lastIndexOf that accepts an array of integers and
+//an integer value as its parameters and returns the last index at which the
+//value occurs in the array. The method should return -1 if the value is not
+//found. For example, in the list containing {74, 85, 102, 99, 101, 85, 56}, the
+//last index of the value 85 is 5.
+import java.util.*;
+public class Main {
 
-//Write a program to read an integer number (n>0). Write flowing methods:
-//- Checking whether the input number is a prime number or not?
-//- Print out prime submultiples of number n
-//- Generate the first 100 prime numbers.
-    import java.util.*;
-    public class Main {
-        public static void main(String[] args) {
-            Scanner input = new Scanner(System.in);
-            int[] a = new int[1000];
-            System.out.print("n: ");
-            int n = input.nextInt();
-            System.out.println(n+(isPrime(n)?" is":" is not")+" a prime number");
-            System.out.print("Prime submultiples of "+n+": ");
-            for (int i = 1; i <=n ; i++) {
-                if (n%i==0) if (isPrime(i)) System.out.print(i+" ");
-            }
-            System.out.println();
-            for (int i=1;i<=100;i++) {
-                if (isPrime(i)) System.out.print(i + " ");
-            }
 
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print(" number of elements in the array= ");
+        int n=input.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i <n ; i++) {
+            System.out.print("a["+(i)+"]= ");
+            a[i]=input.nextInt();
         }
-        public static boolean isPrime(int n) {
-            for (int i = 2; i < n; i++) {
-                if (n % i == 0)
-                    return false;
-            }
-            if (n==1) return false;
-            return true;
+        System.out.print("number= ");
+        int number=input.nextInt();
+        int lastIndexOf=-1;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i]==number) lastIndexOf=i;
         }
+        System.out.println(lastIndexOf);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
